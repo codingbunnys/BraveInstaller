@@ -29,6 +29,7 @@ apt update
 apt install brave-keyring brave-browser' > ~/TempRunAsSudo.sh
       chmod 755 ~/TempRunAsSudo.sh
       pkexec ~/TempRunAsSudo.sh
+      rm ~/TempRunAsSudo.sh
     fi
   fi
 fi
