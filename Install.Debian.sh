@@ -8,6 +8,12 @@
 type zenity
 if [[ $? == 1 ]]; then
   echo "Please install Zenity to continue."
+    type pkexec
+    if [[ $? == 1 ]]; then
+      echo "Please install pkexec to continue."
+    else
+      pkexec apt install zenity
+    fi
 else
   type pkexec
   if [[ $? == 1 ]]; then
