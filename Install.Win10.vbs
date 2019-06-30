@@ -6,11 +6,15 @@
 ' Roblox: me_DS
 intAnswer = Msgbox("Do you wish to download the brave browser?" + vbNewLine + "(select no if it is alredy installed)" + vbNewLine + "(Will install from " + vbNewLine + "https://brave-browser-downloads.s3.brave.com/latest/BraveBrowserSetup.exe)", 4096+32+4, "Download Brave?")
 If intAnswer = vbYes Then
-  Dim oFSO
-  Set oFSO = CreateObject("Scripting.FileSystemObject")
+	strFolder = "C:\BraveSetup"
 
-  ' Create a new folder
-  oFSO.CreateFolder "C:\BraveSetup\"
+	SET objFSO = CREATEOBJECT("Scripting.FileSystemObject")
+	objFSO.DeleteFolder strFolder
+	Dim oFSO
+	Set oFSO = CreateObject("Scripting.FileSystemObject")
+
+	' Create a new folder
+	oFSO.CreateFolder "C:\BraveSetup\"
 	dim xHttp: Set xHttp = createobject("Microsoft.XMLHTTP")
 	dim bStrm: Set bStrm = createobject("Adodb.Stream")
 	xHttp.Open "GET", "https://brave-browser-downloads.s3.brave.com/latest/BraveBrowserSetup.exe", False
